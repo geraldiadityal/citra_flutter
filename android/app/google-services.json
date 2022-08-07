@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "486626118435",
+    "project_id": "citra-consulting",
+    "storage_bucket": "citra-consulting.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486626118435:android:6764a2eba81cde18021a96",
+        "android_client_info": {
+          "package_name": "com.rals.project_citra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "486626118435-inv7nh9p6uubrfugakp8jpaf8ko1hhob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8cBbBEdUV1lui2TaECP5IsjgZMxPKhIc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "486626118435-inv7nh9p6uubrfugakp8jpaf8ko1hhob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

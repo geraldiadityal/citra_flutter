@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "sacred-truck-347220",
+  "private_key_id": "cd67f7eedb949f026734333f7746c50582354ddf",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEugIBADANBgkqhkiG9w0BAQEFAASCBKQwggSgAgEAAoIBAQC27zw9Sw4r/tkx\nlUN+W5ruRv9dimsmSJN9XdGgSpI2yTCAg5OPEngZyAOWGJ/tYVlBrZsaVkvIEk7w\n9i8kHaHegrjm9FwXphHkBotfzKfnOJ206w8D+kRd8eEnB530Kh4jjvbHuFo+aapf\nBBDkjfuRjoXrHj+txcDW4A+0Fd0UPvAq0Ar1Mg+UYhN3H6m8UNl36HER5f5d4A/l\n8ipyA5DvHlyRJhNeombIcDAxSi2OWUxayT998jCDWWA3TFTyENvAt9j36+vVbOT6\nZEGIxrff1w5Hv01DMfP4RLGS6gjHvJMXKnIu+GMmNpSnyHGxTSe5RzCWiMIGcOsP\nvygD7HZNAgMBAAECggEABH7n3Qg0OwNXveXuBRd0POVtcqKrfuaHmPMx6u9hVi88\nJPfzSD4EAtBpuwn7G7+/GqPUNCjiNjmx2YQJj8VFGp8zCG/Im2OC0gwuA+iJEAqZ\nGZsVCBwMfRQdv+tN1hCzlT/MQc6a+2GS2kCaDQMACwI4R4sfCvSECHIQ5El+0nfK\nER2SdR95zNNiRzQIy6xqPerv81S9HOLxl32xng4D4c66gkW+1UTpHAtCMz/bi1zH\ngeX93LWdl+G/tKjeEGPa/V8aeO+DGlAn/kDUjKb9uuGS6DCK4AOCEWHoSi87Es4C\ncCN8ClY3qr/qO9F0bxNLwvEuJBk77TMWmRHzpBw50wKBgQD9mC7UKuCbrEF3vZNE\nLUyQjYPwOyAtXLkIW+ToDQ3rCz++1F4gva931yg0rWr8NKy1XRytBT31CLqTqq9b\nKulZRZVm7U++iZaE/f7VDgFdtN73lVDP62pjltFESoVSNOg3A2xW/fZUzvWjdVvV\nDBiC2o/IxDyvjeq2rXESZPbniwKBgQC4q3cL41hYBE1cjnNu/eIiPSX/JkJ97TId\nbmKYl4KAc4M5l7BGSO8F7R3XNl4ij1Hnxx7ZIFVqytMj3oeCSghXD8B2Zb3SvhZP\nkSvNSgnpc4zcQFfNlX7gnyA1gTIVTvkSqiuyi46v7GKGzHK8Qw4rc1KKisqWzcUV\nDilp8xSUhwKBgCJsRe8G4vY+q6RVV2gpvfrhOsehPvzpWTSJRMk6/GirXjvJF/3Z\nwbfCvPJpl9wkSk1UFlBmJcLdLHZe9O6rJIG5sE4IaIq0onnrAGxrOkQ+CQYSfqW6\njvZ1wnJCq1Y9WEgfbtVgI8/fR/ioNY711V3tzRazjIlH+lRRtseIbPuBAoGAGn7n\nfroow8AiRWRe5Y7hsh3p5Ljdk2nD5fsfhFtAqyNnsYy1CvCN8uC5hlZTnUvI6aNl\nJqv/9WmSb7QO5z+uAKfO6m3glWsWkmX2zeaQk4Eztao5rtKDOME8AtE9mVcSX34w\n9NYXK+CTplmRILfSQaOzNROCy65MV6AHix8IVeMCf0q91+jPkTLyIaLplPWPXrHT\nenPJfZwkwTXor+78OvHGPfjD72R0Kd5WxBAqvhLF9AiL2Vz34XA8zAG07Lt7INz9\n2q622umPt1Eqyy6iHLMQHQGmTsoThoR7J8OAw69QmT3zkrTd5A70jotj2EOZWScT\n5KtCdM92NluDwfAW1rw=\n-----END PRIVATE KEY-----\n",
+  "client_email": "citra-consulting-24@sacred-truck-347220.iam.gserviceaccount.com",
+  "client_id": "112065375933940123211",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/citra-consulting-24%40sacred-truck-347220.iam.gserviceaccount.com"
+}
