@@ -15,6 +15,8 @@ class _HomePageState extends State<HomePage> {
   String serviceString = "";
   int? selectedId;
 
+  bool isLoading = true;
+
   @override
   void initState() {
     super.initState();
@@ -36,7 +38,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               _buildMenuCard(size, context),
               Expanded(
-                child: (selectedId != null)
+                child: (!isLoading)
                     ? Column(
                         children: [
                           _buildByService(size),
@@ -305,9 +307,11 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> getService() async {
     services = await context.read<CitraServiceCubit>().getService();
+    await context.read<CitraPartnerCubit>().getAllPartner();
     setState(() {
       selectedId = services![0].id;
       serviceString = services![0].name;
+      isLoading = false;
     });
   }
 }

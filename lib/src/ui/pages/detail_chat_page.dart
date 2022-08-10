@@ -292,13 +292,15 @@ class _DetailChatPageState extends State<DetailChatPage> {
               ],
             ),
           ),
-          IconButton(
-            onPressed: () async {
-              _joinJitsi();
-            },
-            color: accentColor3,
-            icon: const Icon(Icons.videocam),
-          ),
+          (widget.sessionChat.expired_at.isBefore(DateTime.now()))
+              ? SizedBox()
+              : IconButton(
+                  onPressed: () async {
+                    _joinJitsi();
+                  },
+                  color: accentColor3,
+                  icon: const Icon(Icons.videocam),
+                ),
           ((state as UserLoaded).user.roles == "PARTNER")
               ? PopupMenuButton(
                   icon: Icon(Icons.more_vert, color: whiteColor),

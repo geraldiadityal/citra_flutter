@@ -9,6 +9,11 @@ class CitraPartnerInitial extends CitraPartnerState {
   List<Object> get props => [];
 }
 
+class CitraPartnerLoading extends CitraPartnerState {
+  @override
+  List<Object> get props => [];
+}
+
 class AllPartnerLoaded extends CitraPartnerState {
   final List<CitraPartner> allCitraPartner;
 

@@ -101,12 +101,15 @@ class _InitChatPageState extends State<InitChatPage> {
                     style: greyTextFont,
                   ),
                   Text(
-                    (oldTransaction![0].status == TransactionStatus.success)
-                        ? "You have an success transaction"
+                    (oldTransaction![0].session != null)
+                        ? "You need another session consulting ?"
                         : (oldTransaction![0].status ==
-                                TransactionStatus.pending)
-                            ? "You have an unpaid transaction\nFinish your payment"
-                            : "",
+                                TransactionStatus.success)
+                            ? "You have an success transaction"
+                            : (oldTransaction![0].status ==
+                                    TransactionStatus.pending)
+                                ? "You have an unpaid transaction\nFinish your payment"
+                                : "",
                     textAlign: TextAlign.center,
                     style: blackTextFont,
                   )
@@ -122,7 +125,11 @@ class _InitChatPageState extends State<InitChatPage> {
 
               String? paymentURL;
               //handle unpaid transaction
-              if (oldTransaction != null) {
+              if (oldTransaction != null &&
+                  oldTransaction![0]
+                      .session!
+                      .expired_at
+                      .isAfter(DateTime.now())) {
                 if (oldTransaction![0].status == TransactionStatus.success) {
                   context.read<PageCubit>().setPage(1);
                   Get.offAll(
@@ -239,7 +246,16 @@ class _InitChatPageState extends State<InitChatPage> {
               status: "SUCCESS", partnerId: widget.partner.id);
           if (data.isNotEmpty) {
             oldTransaction = data;
-            buttonText = "Chat Now";
+            if (oldTransaction![0].session != null) {
+              if (oldTransaction![0]
+                  .session!
+                  .expired_at
+                  .isBefore(DateTime.now())) {
+                buttonText = "Checkout";
+              } else {
+                buttonText = "Chat Now";
+              }
+            }
           } else {
             oldTransaction = null;
             buttonText = "Checkout";

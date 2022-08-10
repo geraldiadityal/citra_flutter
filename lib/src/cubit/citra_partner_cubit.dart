@@ -5,11 +5,11 @@ import 'package:project_citra/src/services/services.dart';
 
 part 'citra_partner_state.dart';
 
-
 class CitraPartnerCubit extends Cubit<CitraPartnerState> {
   CitraPartnerCubit() : super(CitraPartnerInitial());
 
   Future<void> getAllPartner() async {
+    emit(CitraPartnerLoading());
     ApiReturnValue<List<CitraPartner>> result =
         await CitraPartnerServices.getPartner();
     if (result.value != null) {
