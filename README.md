@@ -1,4 +1,4 @@
-# project_citra
+# citra_flutter
 
 Skripsi Project
 
@@ -8,6 +8,6 @@ Perancangan Aplikasi Layanan Konsultasi Online Berbasis Android Dalam Mengatasi 
 
 - [Dosen Pembimbing : Yusuf Kurnia]
 
-- [Cloud Server](http://35.219.65.155/).
-- [Flutter Project](https://github.com/geraldiadityal/project_citra).
+- [Cloud Server](http://citraconsulting.online/).
+- [Flutter Project](https://github.com/geraldiadityal/citra_flutter).
 - [Laravel Project](https://github.com/geraldiadityal/citra-web)
