@@ -56,7 +56,7 @@ class TransactionServices {
   }
 
   static Future<ApiReturnValue<Transaction>> submitTransaction(
-      CitraPartner partner, User user,
+      CitraPartner partner, User user, int totalPrice,
       {http.Client? client}) async {
     client ??= http.Client();
 
@@ -71,7 +71,7 @@ class TransactionServices {
           <String, dynamic>{
             'partner_id': partner.id,
             'user_id': user.id,
-            'total': partner.price,
+            'total': totalPrice,
             'status': "UNPAID",
           },
         ));

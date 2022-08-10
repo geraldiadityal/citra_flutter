@@ -23,10 +23,17 @@ class _DetailChatPageState extends State<DetailChatPage> {
 
   final FocusNode messageFocus = FocusNode();
 
+  Timer? _timer;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        checkMeeting();
+      });
+    });
     context
         .read<PusherMessageCubit>()
         .getFetchMessage(sessionChatId: widget.sessionChat.id);
@@ -41,9 +48,18 @@ class _DetailChatPageState extends State<DetailChatPage> {
         .initPusher(sessionChatId: widget.sessionChat.id);
   }
 
+  checkMeeting() {
+    var now = DateTime.now();
+
+    if (widget.sessionChat.expired_at.isBefore(now)) {
+      JitsiMeet.closeMeeting();
+    }
+  }
+
   @override
   void dispose() {
     super.dispose();
+    _timer!.cancel();
   }
 
   @override
@@ -282,10 +298,16 @@ class _DetailChatPageState extends State<DetailChatPage> {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
+                // Text(
+                //   "Sesi Konsultasi selesai pada\n" +
+                //       convertDateTime(widget.sessionChat.expired_at),
+                //   style: whiteTextFont.copyWith(fontSize: 8, letterSpacing: 1),
+                //   maxLines: 2,
+                //   overflow: TextOverflow.ellipsis,
+                // ),
                 Text(
-                  "Sesi Konsultasi selesai pada\n" +
-                      convertDateTime(widget.sessionChat.expired_at),
-                  style: whiteTextFont.copyWith(fontSize: 8, letterSpacing: 1),
+                  countdownExpired(widget.sessionChat.expired_at),
+                  style: whiteTextFont.copyWith(fontSize: 12, letterSpacing: 1),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -385,9 +407,20 @@ class _DetailChatPageState extends State<DetailChatPage> {
             ..videoMuted = true
             ..featureFlags.addAll(featureFlags);
 
-      await JitsiMeet.joinMeeting(options);
+      await JitsiMeet.joinMeeting(options,
+          listener: JitsiMeetingListener(
+            onConferenceJoined: _onConferenceJoined,
+          ));
     } catch (error) {
       debugPrint("error: $error");
+    }
+  }
+
+  _onConferenceJoined(message) {
+    var now = DateTime.now();
+
+    if (widget.sessionChat.expired_at.isBefore(now)) {
+      JitsiMeet.closeMeeting();
     }
   }
 }

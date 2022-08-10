@@ -35,9 +35,10 @@ class TransactionCubit extends Cubit<TransactionState> {
     }
   }
 
-  Future<String?> submitTransaction(CitraPartner partner, User user) async {
+  Future<String?> submitTransaction(
+      CitraPartner partner, User user, int totalPrice) async {
     ApiReturnValue<Transaction> result =
-        await TransactionServices.submitTransaction(partner, user);
+        await TransactionServices.submitTransaction(partner, user, totalPrice);
 
     if (result.value != null) {
       emit(TransactionLoaded(

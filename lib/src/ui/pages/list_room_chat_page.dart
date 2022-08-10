@@ -78,6 +78,7 @@ class _ListRoomChatPageState extends State<ListRoomChatPage> {
 
                         if (data.isNotEmpty) {
                           return ListView.separated(
+                              reverse: true,
                               itemBuilder: (BuildContext context, int index) {
                                 var dataPartner = statePartner.allCitraPartner
                                     .where((element) =>
@@ -142,6 +143,7 @@ class _ListRoomChatPageState extends State<ListRoomChatPage> {
                         var data = state.sessionChat;
 
                         if (data.isNotEmpty) {
+                          data = data.reversed.toList();
                           return ListView.separated(
                               itemBuilder: (BuildContext context, int index) {
                                 var dataPartner = statePartner.allCitraPartner

@@ -19,12 +19,15 @@ class _InitChatPageState extends State<InitChatPage> {
   String oldPayment = "";
   List<Transaction>? oldTransaction;
   String buttonText = "";
+  int totalHours = 1;
+  int totalPrice = 0;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     checkTransactions();
+    totalPrice = totalHours * widget.partner.price;
   }
 
   @override
@@ -89,8 +92,9 @@ class _InitChatPageState extends State<InitChatPage> {
         ),
         Text(
           NumberFormat.currency(
-                  locale: 'id-ID', symbol: 'Rp ', decimalDigits: 0)
-              .format(widget.partner.price),
+                      locale: 'id-ID', symbol: 'Rp ', decimalDigits: 0)
+                  .format(widget.partner.price) +
+              " /hours",
           style: accentTextFont.copyWith(letterSpacing: 2),
         ),
         (oldTransaction != null)
@@ -116,6 +120,65 @@ class _InitChatPageState extends State<InitChatPage> {
                 ],
               )
             : SizedBox(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            CustomAddRemove(
+              onTap: () {
+                if (totalHours > 1) {
+                  setState(() {
+                    totalHours -= 1;
+                    totalPrice = widget.partner.price * totalHours;
+                  });
+                }
+              },
+              isAdd: false,
+            ),
+            Text(
+              totalHours.toString(),
+              style: blackTextFont.copyWith(fontSize: 24),
+            ),
+            CustomAddRemove(
+              onTap: () {
+                setState(() {
+                  totalHours += 1;
+                  totalPrice = widget.partner.price * totalHours;
+                });
+              },
+            ),
+          ],
+        ),
+        SizedBox(
+          height: kDefaultMargin / 2,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Time : ",
+              style: blackTextFont.copyWith(fontSize: 18),
+            ),
+            Text(
+              '$totalHours hours',
+              style: secondaryTextFont.copyWith(letterSpacing: 2),
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Total : ",
+              style: blackTextFont.copyWith(fontSize: 18),
+            ),
+            Text(
+              NumberFormat.currency(
+                      locale: 'id-ID', symbol: 'Rp ', decimalDigits: 0)
+                  .format(totalPrice),
+              style: secondaryTextFont.copyWith(letterSpacing: 2),
+            ),
+          ],
+        ),
         CustomButton(
           onPressed: () async {
             if (state is UserLoaded) {
@@ -145,6 +208,7 @@ class _InitChatPageState extends State<InitChatPage> {
                     await context.read<TransactionCubit>().submitTransaction(
                           widget.partner,
                           state.user,
+                          totalPrice,
                         );
                 TransactionState tranState =
                     context.read<TransactionCubit>().state;

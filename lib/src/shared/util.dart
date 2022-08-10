@@ -101,6 +101,15 @@ String convertTimeChat(DateTime dateTime) {
   return '${dateTime.day}/${dateTime.month}/${dateTime.year}';
 }
 
+String countdownExpired(DateTime expireTime) {
+  var now = DateTime.now();
+  var timeLeft = expireTime.difference(now);
+  if (expireTime.isBefore(now)) {
+    return 'Konsultasi selesai';
+  }
+  return timeLeft.toString().substring(0, 7);
+}
+
 extension EmailValidator on String {
   bool isValidEmail() {
     return RegExp(

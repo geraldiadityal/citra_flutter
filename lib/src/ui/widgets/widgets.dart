@@ -13,6 +13,8 @@ part 'custom_button.dart';
 
 part 'custom_textfield.dart';
 
+part 'custom_add_remove.dart';
+
 part 'custom_question_card.dart';
 
 part 'custom_navbar_clipper.dart';
